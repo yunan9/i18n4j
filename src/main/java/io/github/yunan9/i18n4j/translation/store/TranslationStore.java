@@ -41,4 +41,11 @@ public sealed interface TranslationStore extends Translation.Holder permits Tran
   @UnmodifiableView
   @Nullable
   TranslationSnapshot getTranslation(final @NotNull TranslationIdentity translationIdentity);
+
+  @FunctionalInterface
+  interface Holder {
+
+    @NotNull
+    TranslationStore getTranslationStore();
+  }
 }
