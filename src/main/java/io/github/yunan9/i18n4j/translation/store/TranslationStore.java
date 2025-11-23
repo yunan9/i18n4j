@@ -13,7 +13,7 @@ public sealed interface TranslationStore extends Translation.Holder permits Tran
 
   int INITIAL_TRANSLATION_STORE_CAPACITY = 64;
 
-  float TRANSLATION_STORE_LOAD_FACTOR = 0.75f;
+  float TRANSLATION_STORE_LOAD_FACTOR = .75f;
 
   @Contract(value = "_ -> new", pure = true)
   static @NotNull TranslationStore newTranslationStore(
