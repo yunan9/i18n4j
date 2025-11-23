@@ -2,6 +2,7 @@ package io.github.yunan9.i18n4j.translation.store;
 
 import static java.util.Objects.requireNonNull;
 
+import io.github.yunan9.i18n4j.translation.Translation;
 import io.github.yunan9.i18n4j.translation.identity.TranslationIdentity;
 import io.github.yunan9.i18n4j.translation.snapshot.TranslationSnapshot;
 import java.util.Collection;
@@ -26,10 +27,13 @@ final class TranslationStoreImpl implements TranslationStore {
   }
 
   @Override
-  public void installTranslations(
-      final @UnmodifiableView @NotNull Collection<@NotNull TranslationSnapshot> translations) {
-    requireNonNull(translations)
-        .forEach(translation -> this.translations.put(translation.getId(), translation));
+  public void installTranslations(final Translation.@NotNull Holder translationHolder) {
+    final var translations = requireNonNull(translationHolder).getTranslations();
+    if (translations.isEmpty()) {
+      return;
+    }
+
+    translations.forEach(translation -> this.translations.put(translation.getId(), translation));
   }
 
   @Override

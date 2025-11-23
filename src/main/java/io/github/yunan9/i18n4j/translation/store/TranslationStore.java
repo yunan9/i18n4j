@@ -1,17 +1,15 @@
 package io.github.yunan9.i18n4j.translation.store;
 
-import static java.util.Objects.requireNonNull;
-
+import io.github.yunan9.i18n4j.translation.Translation;
 import io.github.yunan9.i18n4j.translation.identity.TranslationIdentity;
 import io.github.yunan9.i18n4j.translation.snapshot.TranslationSnapshot;
-import io.github.yunan9.i18n4j.translation.source.TranslationSource;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.jetbrains.annotations.*;
 
-public sealed interface TranslationStore permits TranslationStoreImpl {
+public sealed interface TranslationStore extends Translation.Holder permits TranslationStoreImpl {
 
   int INITIAL_TRANSLATION_STORE_CAPACITY = 64;
 
@@ -33,22 +31,12 @@ public sealed interface TranslationStore permits TranslationStoreImpl {
         new ConcurrentHashMap<>(INITIAL_TRANSLATION_STORE_CAPACITY, TRANSLATION_STORE_LOAD_FACTOR));
   }
 
+  @Override
   @UnmodifiableView
   @NotNull
   Collection<@NotNull TranslationSnapshot> getTranslations();
 
-  @ApiStatus.NonExtendable
-  default void installTranslations(final @NotNull TranslationSource translationSource) {
-    this.installTranslations(requireNonNull(translationSource).getTranslations());
-  }
-
-  @ApiStatus.NonExtendable
-  default void installTranslations(final @NotNull TranslationStore translationStore) {
-    this.installTranslations(requireNonNull(translationStore).getTranslations());
-  }
-
-  void installTranslations(
-      final @UnmodifiableView @NotNull Collection<@NotNull TranslationSnapshot> translations);
+  void installTranslations(final Translation.@NotNull Holder translationHolder);
 
   @UnmodifiableView
   @Nullable

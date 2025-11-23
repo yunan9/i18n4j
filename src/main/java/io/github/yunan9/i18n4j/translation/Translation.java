@@ -3,8 +3,10 @@ package io.github.yunan9.i18n4j.translation;
 import io.github.yunan9.i18n4j.translation.snapshot.TranslationSnapshot;
 import io.github.yunan9.pointer.key.PointerKey;
 import io.github.yunan9.pointer.store.PointerStore;
+import java.util.Collection;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.UnmodifiableView;
 
 public sealed interface Translation extends PointerStore.Holder permits TranslationImpl {
 
@@ -27,4 +29,12 @@ public sealed interface Translation extends PointerStore.Holder permits Translat
   @Override
   @NotNull
   PointerStore getPointerStore();
+
+  @FunctionalInterface
+  interface Holder {
+
+    @UnmodifiableView
+    @NotNull
+    Collection<@NotNull TranslationSnapshot> getTranslations();
+  }
 }
