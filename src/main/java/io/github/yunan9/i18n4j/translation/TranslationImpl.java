@@ -11,8 +11,8 @@ final class TranslationImpl implements Translation {
   TranslationImpl(
       final @NotNull PointerStore pointerStore,
       final @NotNull TranslationSnapshot translationSnapshot) {
-    this.pointerStore = pointerStore;
-    this.pointerStore.registerPointer(TRANSLATION_SNAPSHOT_POINTER_KEY, () -> translationSnapshot);
+    (this.pointerStore = pointerStore)
+        .registerPointer(TRANSLATION_SNAPSHOT_POINTER_KEY, () -> translationSnapshot);
   }
 
   @Override
