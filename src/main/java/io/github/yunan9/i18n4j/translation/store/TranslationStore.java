@@ -15,6 +15,8 @@ public sealed interface TranslationStore extends Translation.Holder permits Tran
 
   float TRANSLATION_STORE_LOAD_FACTOR = .75f;
 
+  TranslationStore GLOBAL_TRANSLATION_STORE = newConcurrentTranslationStore();
+
   @Contract(value = "_ -> new", pure = true)
   static @NotNull TranslationStore newTranslationStore(
       final @NotNull Map<@NotNull TranslationIdentity, @NotNull TranslationSnapshot> translations) {
