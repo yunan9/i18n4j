@@ -6,5 +6,5 @@ import org.jetbrains.annotations.NotNull;
 @FunctionalInterface
 public interface TranslationMapper<T> {
 
-  T map(final @NotNull TranslationSnapshot translationSnapshot);
+  T mapTranslation(final @NotNull TranslationSnapshot translationSnapshot);
 }
