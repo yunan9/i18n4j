@@ -16,12 +16,12 @@ final class TranslationSnapshotImpl implements TranslationSnapshot {
   }
 
   @Override
-  public @NotNull TranslationIdentity getId() {
+  public @NotNull TranslationIdentity id() {
     return this.id;
   }
 
   @Override
-  public @NotNull String getValue() {
+  public @NotNull String value() {
     return this.value;
   }
 }

@@ -17,9 +17,9 @@ public sealed interface TranslationIdentity extends Keyable<@NotNull String>, Lo
 
   @Override
   @NotNull
-  String getKey();
+  String key();
 
   @Override
   @NotNull
-  Locale getLocale();
+  Locale locale();
 }

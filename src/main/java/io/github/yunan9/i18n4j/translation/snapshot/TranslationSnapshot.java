@@ -18,9 +18,9 @@ public sealed interface TranslationSnapshot
 
   @Override
   @NotNull
-  TranslationIdentity getId();
+  TranslationIdentity id();
 
   @Override
   @NotNull
-  String getValue();
+  String value();
 }

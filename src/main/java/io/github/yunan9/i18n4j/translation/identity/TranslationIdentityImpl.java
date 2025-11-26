@@ -16,12 +16,12 @@ final class TranslationIdentityImpl implements TranslationIdentity {
   }
 
   @Override
-  public @NotNull String getKey() {
+  public @NotNull String key() {
     return this.key;
   }
 
   @Override
-  public @NotNull Locale getLocale() {
+  public @NotNull Locale locale() {
     return this.locale;
   }
 }

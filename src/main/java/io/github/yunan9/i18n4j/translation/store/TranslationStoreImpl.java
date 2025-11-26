@@ -22,19 +22,19 @@ final class TranslationStoreImpl implements TranslationStore {
   }
 
   @Override
-  public @UnmodifiableView @NotNull Collection<@NotNull TranslationSnapshot> getTranslations() {
+  public @UnmodifiableView @NotNull Collection<@NotNull TranslationSnapshot> translations() {
     return Collections.unmodifiableCollection(this.translations.values());
   }
 
   @Override
   public void installTranslations(final Translation.@NotNull Holder translationHolder) {
-    for (final var translation : requireNonNull(translationHolder).getTranslations()) {
-      this.translations.put(translation.getId(), translation);
+    for (final var translation : requireNonNull(translationHolder).translations()) {
+      this.translations.put(translation.id(), translation);
     }
   }
 
   @Override
-  public @UnmodifiableView @Nullable TranslationSnapshot getTranslation(
+  public @UnmodifiableView @Nullable TranslationSnapshot translation(
       final @NotNull TranslationIdentity translationIdentity) {
     return this.translations.get(requireNonNull(translationIdentity));
   }

@@ -35,6 +35,6 @@ public sealed interface Translation extends PointerStore.Holder permits Translat
 
     @UnmodifiableView
     @NotNull
-    Collection<@NotNull TranslationSnapshot> getTranslations();
+    Collection<@NotNull TranslationSnapshot> translations();
   }
 }

@@ -12,5 +12,5 @@ public interface TranslationSource extends Translation.Holder {
   @Override
   @UnmodifiableView
   @NotNull
-  Collection<@NotNull TranslationSnapshot> getTranslations();
+  Collection<@NotNull TranslationSnapshot> translations();
 }

@@ -36,18 +36,18 @@ public sealed interface TranslationStore extends Translation.Holder permits Tran
   @Override
   @UnmodifiableView
   @NotNull
-  Collection<@NotNull TranslationSnapshot> getTranslations();
+  Collection<@NotNull TranslationSnapshot> translations();
 
   void installTranslations(final Translation.@NotNull Holder translationHolder);
 
   @UnmodifiableView
   @Nullable
-  TranslationSnapshot getTranslation(final @NotNull TranslationIdentity translationIdentity);
+  TranslationSnapshot translation(final @NotNull TranslationIdentity translationIdentity);
 
   @FunctionalInterface
   interface Holder {
 
     @NotNull
-    TranslationStore getTranslationStore();
+    TranslationStore translationStore();
   }
 }
