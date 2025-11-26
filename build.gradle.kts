@@ -9,5 +9,6 @@ repositories {
 
 dependencies {
     compileOnly(libs.jetbrains.annotations)
+
     compileOnly(libs.bundles.yunan9.series)
 }
