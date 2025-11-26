@@ -28,7 +28,7 @@ public sealed interface Translation extends PointerStore.Holder permits Translat
 
   @Override
   @NotNull
-  PointerStore getPointerStore();
+  PointerStore pointerStore();
 
   @FunctionalInterface
   interface Holder {

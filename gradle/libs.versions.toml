@@ -2,7 +2,7 @@
 jetbrains-annotations = 'org.jetbrains:annotations:26.0.2-1'
 
 yunan9-commons = 'io.github.yunan9:commons:0.2.0-SNAPSHOT'
-yunan9-pointers = 'io.github.yunan9:pointers:1.0.1'
+yunan9-pointers = 'io.github.yunan9:pointers:1.1.0'
 
 [bundles]
 yunan9-series = ['yunan9-commons', 'yunan9-pointers']

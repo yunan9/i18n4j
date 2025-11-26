@@ -16,7 +16,7 @@ final class TranslationImpl implements Translation {
   }
 
   @Override
-  public @NotNull PointerStore getPointerStore() {
+  public @NotNull PointerStore pointerStore() {
     return this.pointerStore;
   }
 }
