@@ -28,12 +28,9 @@ final class TranslationStoreImpl implements TranslationStore {
 
   @Override
   public void installTranslations(final Translation.@NotNull Holder translationHolder) {
-    final var translations = requireNonNull(translationHolder).getTranslations();
-    if (translations.isEmpty()) {
-      return;
+    for (final var translation : requireNonNull(translationHolder).getTranslations()) {
+      this.translations.put(translation.getId(), translation);
     }
-
-    translations.forEach(translation -> this.translations.put(translation.getId(), translation));
   }
 
   @Override
